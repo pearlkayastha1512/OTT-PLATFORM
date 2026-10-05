@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- trueOTT Brand Cinema Theme Colors -->
+    <color name="splash_background">#FF07090E</color>
+    <color name="splash_surface">#FF0D131F</color>
+    <color name="brand_primary">#FF0077D7</color>
+    <color name="brand_accent">#FF00A3FF</color>
+    <color name="brand_green">#FF6EBE16</color>
+    <color name="brand_green_light">#FF8CE028</color>
+    <color name="brand_purple">#FF6EBE16</color>
 </resources>

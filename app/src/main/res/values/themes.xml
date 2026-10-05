@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Application Theme -->
+    <style name="Theme.OTTPLATFORM" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+    </style>
 
-    <style name="Theme.OTTPLATFORM" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Android 12+ / AndroidX SplashScreen Theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Background color of the splash screen -->
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <!-- Animated icon or vector drawable -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/trueott_logo</item>
+        <!-- Icon background if needed (optional) -->
+        <item name="windowSplashScreenIconBackgroundColor">@color/splash_background</item>
+        <!-- Theme to switch to after splash screen exits -->
+        <item name="postSplashScreenTheme">@style/Theme.OTTPLATFORM</item>
+    </style>
 </resources>
