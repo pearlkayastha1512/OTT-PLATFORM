@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: trueott-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/trueott_db
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
