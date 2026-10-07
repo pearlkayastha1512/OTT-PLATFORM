@@ -15,6 +15,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.ott_platform.tenant.TenantRepository
+import com.example.ott_platform.ui.auth.LoginScreen
+import com.example.ott_platform.ui.auth.RegisterScreen
 import com.example.ott_platform.ui.home.HomeScreen
 import com.example.ott_platform.ui.onboarding.OnboardingScreen
 import com.example.ott_platform.ui.splash.SplashScreen
@@ -23,6 +25,8 @@ import com.example.ott_platform.ui.theme.OTTPLATFORMTheme
 enum class AppScreen {
     Splash,
     Onboarding,
+    Login,
+    Register,
     Home
 }
 
@@ -64,7 +68,37 @@ fun OTTApp() {
                     modifier = Modifier.fillMaxSize(),
                     tenantConfig = TenantRepository.currentTenant.value,
                     onFinishOnboarding = {
+                        currentScreen = AppScreen.Login
+                    }
+                )
+            }
+            AppScreen.Login -> {
+                LoginScreen(
+                    modifier = Modifier.fillMaxSize(),
+                    tenantConfig = TenantRepository.currentTenant.value,
+                    onLoginSuccess = {
                         currentScreen = AppScreen.Home
+                    },
+                    onNavigateToRegister = {
+                        currentScreen = AppScreen.Register
+                    },
+                    onForgotPassword = {
+                        // Action for forgot password
+                    }
+                )
+            }
+            AppScreen.Register -> {
+                RegisterScreen(
+                    modifier = Modifier.fillMaxSize(),
+                    tenantConfig = TenantRepository.currentTenant.value,
+                    onRegisterSuccess = {
+                        currentScreen = AppScreen.Home
+                    },
+                    onNavigateToLogin = {
+                        currentScreen = AppScreen.Login
+                    },
+                    onBackClick = {
+                        currentScreen = AppScreen.Login
                     }
                 )
             }
@@ -72,7 +106,7 @@ fun OTTApp() {
                 HomeScreen(
                     modifier = Modifier.fillMaxSize(),
                     onReplaySplash = {
-                        currentScreen = AppScreen.Onboarding
+                        currentScreen = AppScreen.Login
                     }
                 )
             }
